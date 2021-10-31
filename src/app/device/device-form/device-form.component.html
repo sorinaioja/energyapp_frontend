@@ -1,0 +1,50 @@
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="deviceId"
+    [value] = "service.formData.sensorId"/>
+    <div class="form-group">
+        <label>Client Id</label>
+        <input class="form-control form-control-lg" placeholder="Client Id"
+        name = "clientId" #clientId="ngModel" [(ngModel)]="service.formData.clientId"
+        maxlength="20"
+        required [class.invalid]="clientId.invalid && clientId.touched">
+    </div>
+    <div class="form-group">
+        <label>Sensor Id</label>
+        <input class="form-control form-control-lg" placeholder="Sensor Id"
+        name = "sensorId" #sensorId="ngModel" [(ngModel)]="service.formData.sensorId"
+        maxlength="20"
+        required [class.invalid]="sensorId.invalid && sensorId.touched">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control form-control-lg" placeholder="Description"
+        name = "description" #description="ngModel" [(ngModel)]="service.formData.description"
+        maxlength="200"
+        required [class.invalid]="description.invalid && description.touched">
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input class="form-control form-control-lg" placeholder="Address"
+        name = "address" #address="ngModel" [(ngModel)]="service.formData.address"
+        maxlength="200"
+        required [class.invalid]="address.invalid && address.touched">
+    </div>
+    <div class="form-group">
+        <label>Maximum energy consumption</label>
+        <input type="number" class="form-control form-control-lg" placeholder="Value"
+        name = "maximumEnergyConsumption" #maximumEnergyConsumption="ngModel" [(ngModel)]="service.formData.maximumEnergyConsumption"
+        required >
+    </div>
+    <div class="form-group">
+        <label>Average energy consumption</label>
+        <input type="number" class="form-control form-control-lg" placeholder="Value"
+        name = "averageEnergyConsumption" #averageEnergyConsumption="ngModel" [(ngModel)]="service.formData.averageEnergyConsumption"
+        required >
+    </div>
+    
+    <br>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+
+</form>

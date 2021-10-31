@@ -1,0 +1,28 @@
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="recordId"
+    [value] = "service.formData.recordId"/>
+    <div class="form-group">
+        <label>Sensor Identifier</label>
+        <input class="form-control form-control-lg" placeholder="Sensor Id"
+        name = "sensorId" #sensorId="ngModel" [(ngModel)]="service.formData.sensorId"
+        maxlength="20"
+        required [class.invalid]="sensorId.invalid && sensorId.touched">
+    </div>
+    <div class="form-group">
+        <label>Timestamp</label>
+        <input type="datetime-local" class="form-control form-control-lg" 
+        name = "timestamp" #timestamp="ngModel" [(ngModel)]="service.formData.timestamp"
+        required >
+    </div>
+    <div class="form-group">
+        <label>Energy Consumption</label>
+        <input type="number" class="form-control form-control-lg" placeholder="Value"
+        name = "energyConsumption" #energyConsumption="ngModel" [(ngModel)]="service.formData.energyConsumption"
+        required >
+    </div>
+    <br>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+
+</form>
