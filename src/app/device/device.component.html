@@ -1,0 +1,42 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Device Registration</h1>
+</div>
+
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <app-device-form></app-device-form>
+
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Client Id</th>
+                        <th>Sensor Id</th>
+                        <th>Description</th>
+                        <th>Address</th>
+                        <th>Maximum Energy Consumption</th>
+                        <th>Average Energy Consumption</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of service.list">
+                        <td (click)="populateForm(c)">{{c.clientId}}</td>
+                        <td (click)="populateForm(c)">{{c.sensorId}}</td>
+                        <td (click)="populateForm(c)">{{c.description}}</td>
+                        <td (click)="populateForm(c)">{{c.address}}</td>
+                        <td (click)="populateForm(c)">{{c.maximumEnergyConsumption}}</td>
+                        <td (click)="populateForm(c)">{{c.averageEnergyConsumption}}</td>
+                        <td>
+                            <i class="far fa-trash-alt fa-lg text-danger" (click)= "onDelete(c.deviceId)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

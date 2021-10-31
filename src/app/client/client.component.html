@@ -1,0 +1,35 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Client Registration</h1>
+</div>
+<app-header></app-header>
+
+<div class = "container">
+    <div class="row">
+        <div class="col-md-6">
+            <app-client-form></app-client-form>
+
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Birthdate</th>
+                        <th>Address</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of service.list">
+                        <td (click)="populateForm(c)">{{c.name}}</td>
+                        <td (click)="populateForm(c)">{{c.birthDate | date}}</td>
+                        <td (click)="populateForm(c)">{{c.address}}</td>
+                        <td>
+                            <i class="far fa-trash-alt fa-lg text-danger" (click)= "onDelete(c.clientId)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
